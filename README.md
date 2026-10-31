@@ -5,6 +5,12 @@
 A document scanner for Ubuntu Touch: photograph pages with the camera,
 straighten them, recognise the text and save them as a searchable PDF.
 
+## Screenshots
+
+| Start page |
+| :---: |
+| <img src="docs/screenshots/home.png" alt="ubDocScan start page with a saved document" width="270"> |
+
 ## Features
 
 - **Scan with the camera** — tap to focus, flash on/off. An empty document
