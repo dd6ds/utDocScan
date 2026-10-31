@@ -1,0 +1,27 @@
+<RCC>
+  <qresource prefix="/">
+    <file>qml/main.qml</file>
+    <file>qml/HomePage.qml</file>
+    <file>qml/DocumentMenu.qml</file>
+    <file>qml/ScanPage.qml</file>
+    <file>qml/PageThumbnail.qml</file>
+    <file>qml/PageMenu.qml</file>
+    <file>qml/CameraPage.qml</file>
+    <file>qml/CropPage.qml</file>
+    <file>qml/CornerHandle.qml</file>
+    <file>qml/ScanFrame.qml</file>
+    <file>qml/FilterChoice.qml</file>
+    <file>qml/ExportPage.qml</file>
+    <file>qml/OcrLanguageChoice.qml</file>
+    <file>qml/SettingsPage.qml</file>
+    <file>qml/LanguageChoice.qml</file>
+    <file>qml/AppearanceChoice.qml</file>
+    <file>qml/ImportPicker.qml</file>
+    <file>qml/SharePicker.qml</file>
+    <file>qml/AppHeader.qml</file>
+    <file>qml/AppLabel.qml</file>
+    <file>qml/AppField.qml</file>
+    <file>qml/BusyOverlay.qml</file>
+    <file>qml/Note.qml</file>
+  </qresource>
+</RCC>

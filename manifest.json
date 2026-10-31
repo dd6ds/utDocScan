@@ -1,0 +1,17 @@
+{
+  "name": "ubdocscan",
+  "title": "ubDocScan",
+  "version": "0.1.0",
+  "description": "Scan documents with the camera, recognise the text and save them as searchable PDF",
+  "maintainer": "Developer <developer@example.com>",
+  "architecture": "$ENV{CLICK_ARCH}",
+  "framework": "ubuntu-sdk-20.04",
+  "hooks": {
+    "ubdocscan": {
+      "apparmor": "ubdocscan.apparmor",
+      "desktop": "ubdocscan.desktop"
+    }
+  },
+  "type": "app",
+  "icon": "ubdocscan.svg"
+}

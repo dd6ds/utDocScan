@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ubDocScan
+Comment=Scan documents to searchable PDF
+Exec=ubdocscan %U
+Icon=ubdocscan.svg
+Terminal=false
+Type=Application
+Categories=Office;Graphics;Scanning;OCR;
+X-Lomiri-Touch=true

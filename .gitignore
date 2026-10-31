@@ -1,0 +1,22 @@
+# Build output
+build/
+*.click
+
+# CMake leftovers if someone configures in-tree
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Clickable
+.clickable/
+
+# Runtime / debug artefacts
+*.log
+
+# Editors & OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store

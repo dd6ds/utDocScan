@@ -1,0 +1,44 @@
+clickable_minimum_required: 8.7.0
+
+builder: cmake
+kill: ubdocscan
+
+restrict_arch: arm64
+framework: ubuntu-sdk-20.04
+
+dependencies_target:
+  - qtdeclarative5-dev
+  - libtesseract-dev
+
+# Architecture-independent data: the OCR language models and pdf.ttf, which
+# CMake installs into the click (see TESSDATA_SOURCE_DIR there).
+dependencies_host:
+  - tesseract-ocr
+  - tesseract-ocr-eng
+  - tesseract-ocr-deu
+  - tesseract-ocr-fra
+  - tesseract-ocr-spa
+  - tesseract-ocr-ita
+
+# Tesseract, Leptonica and those of their dependencies that an Ubuntu Touch
+# 24.04 phone does not ship in the 20.04 version. They land in
+# lib/<arch triplet> inside the click, which is on the app's library path.
+install_lib:
+  - /usr/lib/${ARCH_TRIPLET}/libtesseract.so.4*
+  - /usr/lib/${ARCH_TRIPLET}/liblept.so.5*
+  - /usr/lib/${ARCH_TRIPLET}/libarchive.so.13*
+  - /usr/lib/${ARCH_TRIPLET}/libnettle.so.7*
+  - /usr/lib/${ARCH_TRIPLET}/libgif.so.7*
+  - /usr/lib/${ARCH_TRIPLET}/libtiff.so.5*
+  - /usr/lib/${ARCH_TRIPLET}/libjbig.so.0*
+  - /usr/lib/${ARCH_TRIPLET}/libwebp.so.6*
+  - /usr/lib/${ARCH_TRIPLET}/libwebpmux.so.3*
+  - /usr/lib/${ARCH_TRIPLET}/libopenjp2.so*
+
+# read_path/write_path for ~/Documents (ubdocscan.apparmor) are reserved:
+# click-review flags them as NEEDS REVIEW. That only matters for publishing to
+# the OpenStore (manual vetting there); sideloaded packages work fine.
+ignore_review_errors: true
+
+build_args:
+  - -DCMAKE_BUILD_TYPE=Release
