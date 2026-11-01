@@ -1,7 +1,7 @@
 clickable_minimum_required: 8.7.0
 
 builder: cmake
-kill: ubdocscan
+kill: utdocscan
 
 restrict_arch: arm64
 framework: ubuntu-sdk-20.04
@@ -35,7 +35,7 @@ install_lib:
   - /usr/lib/${ARCH_TRIPLET}/libwebpmux.so.3*
   - /usr/lib/${ARCH_TRIPLET}/libopenjp2.so*
 
-# read_path/write_path for ~/Documents (ubdocscan.apparmor) are reserved:
+# read_path/write_path for ~/Documents (utdocscan.apparmor) are reserved:
 # click-review flags them as NEEDS REVIEW. That only matters for publishing to
 # the OpenStore (manual vetting there); sideloaded packages work fine.
 ignore_review_errors: true

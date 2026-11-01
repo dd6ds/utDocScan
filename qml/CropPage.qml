@@ -49,7 +49,7 @@ Page {
             Layout.fillHeight: true
 
             Image {
-                id: photo
+                id: photoImage
                 anchors.fill: parent
                 anchors.margins: page.app.gu * 1.5
                 fillMode: Image.PreserveAspectFit
@@ -63,16 +63,16 @@ Page {
             ScanFrame {
                 anchors.fill: parent
                 app: page.app
-                photo: photo
+                photo: photoImage
                 corners: page.corners
-                visible: photo.status === Image.Ready
+                visible: photoImage.status === Image.Ready
             }
 
             Repeater {
-                model: photo.status === Image.Ready ? 4 : 0
+                model: photoImage.status === Image.Ready ? 4 : 0
                 CornerHandle {
                     app: page.app
-                    photo: photo
+                    photo: photoImage
                     normX: page.corners[2 * index]
                     normY: page.corners[2 * index + 1]
                     onMoved: page.setCorner(index, nx, ny)
@@ -81,7 +81,7 @@ Page {
 
             BusyIndicator {
                 anchors.centerIn: parent
-                running: photo.status === Image.Loading
+                running: photoImage.status === Image.Loading
             }
         }
 
@@ -107,7 +107,7 @@ Page {
                 Layout.preferredHeight: page.app.buttonHeight
                 highlighted: true
                 font.bold: true
-                enabled: photo.status === Image.Ready
+                enabled: photoImage.status === Image.Ready
                 text: qsTr("Use page")
                 onClicked: page.accept()
             }

@@ -1,6 +1,6 @@
-# ubDocScan
+# utDocScan
 
-<img src="ubdocscan.svg" alt="ubDocScan icon" width="80" align="right">
+<img src="utdocscan.svg" alt="utDocScan icon" width="80" align="right">
 
 A document scanner for Ubuntu Touch: photograph pages with the camera,
 straighten them, recognise the text and save them as a searchable PDF.
@@ -9,7 +9,7 @@ straighten them, recognise the text and save them as a searchable PDF.
 
 | Start page |
 | :---: |
-| <img src="docs/screenshots/home.png" alt="ubDocScan start page with a saved document" width="270"> |
+| <img src="docs/screenshots/home.png" alt="utDocScan start page with a saved document" width="270"> |
 
 ## Features
 
@@ -64,7 +64,7 @@ clickable logs
 ```
 
 Kill a running instance before installing, otherwise the old version keeps
-running: `adb shell pkill -9 ubdocscan; clickable install && clickable launch`
+running: `adb shell pkill -9 utdocscan; clickable install && clickable launch`
 
 The first build installs the Tesseract packages from `clickable.yaml` into a
 cached container image.
@@ -75,7 +75,7 @@ cached container image.
 CMakeLists.txt            Build; installs the OCR models and pdf.ttf
 clickable.yaml            arm64 / ubuntu-sdk-20.04, Tesseract packages, bundled libraries
 manifest.json             Click metadata
-ubdocscan.apparmor        Policy groups camera, content_exchange(_source); write access to ~/Documents
+utdocscan.apparmor        Policy groups camera, content_exchange(_source); write access to ~/Documents
 qml.qrc                   QML is compiled into the binary
 
 src/main.cpp              Entry point, logging, QML context properties
@@ -109,14 +109,14 @@ qml/AppLabel.qml          Label in the theme's text colour
 qml/AppField.qml          TextField in the theme's field colours
 qml/BusyOverlay.qml       Blocks input while a page or PDF is processed
 qml/Note.qml              Short notes at the bottom
-i18n/ubdocscan_*.ts       Translations
+i18n/utdocscan_*.ts       Translations
 i18n/translate.py         Fills the translations (see below)
 ```
 
 ## Translations
 
 All user-visible texts are marked with `qsTr()` (QML) or `tr()` (C++).
-CMake compiles every `i18n/ubdocscan_<lang>.ts` and embeds it. English is the
+CMake compiles every `i18n/utdocscan_<lang>.ts` and embeds it. English is the
 source language; its file only holds the plural forms (`%n page(s)`).
 
 After changing texts, refresh the files with `lupdate` from the Clickable
@@ -126,13 +126,13 @@ container and fill them:
 LUPDATE="docker run --rm -u $(id -u):$(id -g) -v $PWD:/p -w /p \
   clickable/amd64-20.04-arm64:latest /usr/lib/qt5/bin/lupdate -no-obsolete \
   -locations relative src/*.cpp qml/*.qml"
-$LUPDATE -ts i18n/ubdocscan_de.ts i18n/ubdocscan_fr.ts i18n/ubdocscan_es.ts i18n/ubdocscan_it.ts
-$LUPDATE -pluralonly -ts i18n/ubdocscan_en.ts
+$LUPDATE -ts i18n/utdocscan_de.ts i18n/utdocscan_fr.ts i18n/utdocscan_es.ts i18n/utdocscan_it.ts
+$LUPDATE -pluralonly -ts i18n/utdocscan_en.ts
 python3 i18n/translate.py      # lists any text still missing
 ```
 
 To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
-(with its Tesseract model), to `UBDOCSCAN_OCR_LANGUAGES` in
+(with its Tesseract model), to `UTDOCSCAN_OCR_LANGUAGES` in
 `CMakeLists.txt`, to `dependencies_host` in `clickable.yaml`
 (`tesseract-ocr-<code>`), and its texts to `translate.py`.
 
@@ -141,14 +141,14 @@ To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
 | Path | Content |
 |---|---|
 | `~/Documents/*.pdf` | Saved documents (the start page lists every PDF there) |
-| `~/.local/share/ubdocscan/ubdocscan.log` | App log (also in the journal) |
-| `~/.cache/ubdocscan/` | Photos and pages of the current scan |
-| `~/.config/ubdocscan/ubDocScan.conf` | Language, appearance, OCR choice, filter |
+| `~/.local/share/utdocscan/utdocscan.log` | App log (also in the journal) |
+| `~/.cache/utdocscan/` | Photos and pages of the current scan |
+| `~/.config/utdocscan/utDocScan.conf` | Language, appearance, OCR choice, filter |
 
 ## Platform notes
 
 - **Writing to `~/Documents`.** A confined app may normally only write to
-  its own folders. `ubdocscan.apparmor` adds `read_path` / `write_path` for
+  its own folders. `utdocscan.apparmor` adds `read_path` / `write_path` for
   `~/Documents` only. These keys are reserved: click-review reports them as
   *NEEDS REVIEW*, so `clickable.yaml` sets `ignore_review_errors`.
   Sideloading works; publishing to the OpenStore would need manual review.
@@ -172,7 +172,7 @@ To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
 ```bash
 clickable logs
 adb shell 'journalctl --user -f | grep aa-exec'
-adb shell 'dmesg | grep ubdocscan | grep DENIED'      # AppArmor denials
+adb shell 'dmesg | grep utdocscan | grep DENIED'      # AppArmor denials
 ```
 
 ## License

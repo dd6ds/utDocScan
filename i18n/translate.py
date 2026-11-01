@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fills i18n/ubdocscan_<lang>.ts with the translations below.
+"""Fills i18n/utdocscan_<lang>.ts with the translations below.
 
 Workflow when texts change:
   1. lupdate (see README, "Translations") to refresh the .ts files
@@ -392,7 +392,7 @@ def fill(message, value):
 
 
 def translate(code, texts, complete):
-    path = f"i18n/ubdocscan_{code}.ts"
+    path = f"i18n/utdocscan_{code}.ts"
     tree = ET.parse(path)
     missing = []
     for message in tree.iter("message"):

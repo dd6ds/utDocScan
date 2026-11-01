@@ -13,7 +13,7 @@ ApplicationWindow {
     visible: true
     width: Screen.width
     height: Screen.height
-    title: "ubDocScan"
+    title: "utDocScan"
     color: colorBackground
 
     // --- Scaling -----------------------------------------------------------

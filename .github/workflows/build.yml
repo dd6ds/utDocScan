@@ -62,7 +62,7 @@ jobs:
       - name: Upload workflow artifact
         uses: actions/upload-artifact@v7
         with:
-          name: ubdocscan-${{ steps.version.outputs.version }}-arm64
+          name: utdocscan-${{ steps.version.outputs.version }}-arm64
           path: dist/
           retention-days: 30
 
@@ -77,12 +77,12 @@ jobs:
             PRERELEASE="--prerelease"
           fi
           cat > notes.md <<NOTES
-          ubDocScan ${{ steps.version.outputs.version }} for Ubuntu Touch (arm64), built from commit ${GITHUB_SHA::7}.
+          utDocScan ${{ steps.version.outputs.version }} for Ubuntu Touch (arm64), built from commit ${GITHUB_SHA::7}.
 
           **Install** (phone on USB, developer mode on):
           \`\`\`bash
-          adb push ubdocscan_*_arm64.click /home/phablet/Downloads/
-          adb shell pkcon install-local --allow-untrusted /home/phablet/Downloads/ubdocscan_*_arm64.click
+          adb push utdocscan_*_arm64.click /home/phablet/Downloads/
+          adb shell pkcon install-local --allow-untrusted /home/phablet/Downloads/utdocscan_*_arm64.click
           \`\`\`
           Or open the .click file on the phone with the OpenStore app.
 
@@ -91,6 +91,6 @@ jobs:
           gh release create "$TAG" dist/* \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
-            --title "ubDocScan $TAG" \
+            --title "utDocScan $TAG" \
             --notes-file notes.md \
             $PRERELEASE

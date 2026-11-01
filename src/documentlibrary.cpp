@@ -48,7 +48,7 @@ DocumentLibrary::DocumentLibrary(QObject *parent) : QObject(parent)
 }
 
 // ~/Documents, where the file manager and other apps find the PDFs. A
-// confined app may not write there by default; ubdocscan.apparmor grants it
+// confined app may not write there by default; utdocscan.apparmor grants it
 // for this one folder (write_path).
 QString DocumentLibrary::documentsDir()
 {

@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=ubDocScan
+Name=utDocScan
 Comment=Scan documents to searchable PDF
-Exec=ubdocscan %U
-Icon=ubdocscan.svg
+Exec=utdocscan %U
+Icon=utdocscan.svg
 Terminal=false
 Type=Application
 Categories=Office;Graphics;Scanning;OCR;

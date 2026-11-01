@@ -12,7 +12,7 @@ Page {
 
     header: AppHeader {
         app: page.app
-        title: "ubDocScan"
+        title: "utDocScan"
         showBack: false
 
         Button {

@@ -23,7 +23,7 @@ namespace {
 
 // The click package name. Confined apps may only write below
 // ~/.local/share, ~/.cache and ~/.config /<package name>.
-const char *const kPackageName = "ubdocscan";
+const char *const kPackageName = "utdocscan";
 
 QString logFilePath()
 {
@@ -31,7 +31,7 @@ QString logFilePath()
         const QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
                             + QLatin1Char('/') + QLatin1String(kPackageName);
         QDir().mkpath(dir);
-        return dir + QStringLiteral("/ubdocscan.log");
+        return dir + QStringLiteral("/utdocscan.log");
     }();
     return path;
 }
@@ -82,12 +82,12 @@ int main(int argc, char *argv[])
     qputenv("QT_QUICK_CONTROLS_STYLE", "Default");
 
     QGuiApplication app(argc, argv);
-    app.setApplicationName(QStringLiteral("ubDocScan"));
-    // Also decides the settings path (~/.config/ubdocscan/ubDocScan.conf)
+    app.setApplicationName(QStringLiteral("utDocScan"));
+    // Also decides the settings path (~/.config/utdocscan/utDocScan.conf)
     // and the data and cache folders the backend uses.
     app.setOrganizationName(QLatin1String(kPackageName));
     defaultHandler = qInstallMessageHandler(logHandler);
-    qDebug() << "=== ubDocScan starting ===";
+    qDebug() << "=== utDocScan starting ===";
 
     // Qt switched the C library to the phone's locale; Tesseract parses its
     // model files with the C library and needs "." as decimal separator.

@@ -93,7 +93,7 @@ QString PdfExporter::writeImagesOnly(const Progress &progress) const
 {
     QPdfWriter writer(m_pdfPath);
     writer.setTitle(m_title);
-    writer.setCreator(QStringLiteral("ubDocScan"));
+    writer.setCreator(QStringLiteral("utDocScan"));
     writer.setPageMargins(QMarginsF(0, 0, 0, 0));
     QPainter painter;
 
