@@ -1,9 +1,9 @@
 {
   "name": "utdocscan",
   "title": "utDocScan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scan documents with the camera, recognise the text and save them as searchable PDF",
-  "maintainer": "Developer <developer@example.com>",
+  "maintainer": "Dennis <dd6ds@eclipso.de>",
   "architecture": "$ENV{CLICK_ARCH}",
   "framework": "ubuntu-sdk-20.04",
   "hooks": {

@@ -28,10 +28,9 @@ straighten them, recognise the text and save them as a searchable PDF.
   gets an invisible text layer over each page image, so it can be searched
   and text copied from it. OCR languages: English, German, French, Spanish,
   Italian, several at once. OCR can be switched off for an image-only PDF.
-- **Saved documents** — PDFs are stored in `~/Documents`, so the file manager
-  and other apps find them directly. The start page lists the PDFs there with
-  date and size; open or share one with another app (document viewer,
-  messenger), rename, delete.
+- **Saved documents** — list with date and size; open or share a PDF with
+  another app (document viewer, messenger, or the file manager to store it in
+  *Documents*), rename, delete.
 - **Multilanguage** — English, German, French, Spanish and Italian. The app
   follows the phone's language; *Settings → Language* picks a fixed one,
   applied at once.
@@ -75,7 +74,7 @@ cached container image.
 CMakeLists.txt            Build; installs the OCR models and pdf.ttf
 clickable.yaml            arm64 / ubuntu-sdk-20.04, Tesseract packages, bundled libraries
 manifest.json             Click metadata
-utdocscan.apparmor        Policy groups camera, content_exchange(_source); write access to ~/Documents
+utdocscan.apparmor        Policy groups: camera, content_exchange(_source)
 qml.qrc                   QML is compiled into the binary
 
 src/main.cpp              Entry point, logging, QML context properties
@@ -140,18 +139,17 @@ To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
 
 | Path | Content |
 |---|---|
-| `~/Documents/*.pdf` | Saved documents (the start page lists every PDF there) |
+| `~/.local/share/utdocscan/documents/*.pdf` | Saved documents |
 | `~/.local/share/utdocscan/utdocscan.log` | App log (also in the journal) |
 | `~/.cache/utdocscan/` | Photos and pages of the current scan |
 | `~/.config/utdocscan/utDocScan.conf` | Language, appearance, OCR choice, filter |
 
 ## Platform notes
 
-- **Writing to `~/Documents`.** A confined app may normally only write to
-  its own folders. `utdocscan.apparmor` adds `read_path` / `write_path` for
-  `~/Documents` only. These keys are reserved: click-review reports them as
-  *NEEDS REVIEW*, so `clickable.yaml` sets `ignore_review_errors`.
-  Sideloading works; publishing to the OpenStore would need manual review.
+- **No special permissions.** The app uses only common AppArmor policy
+  groups, so the click passes the OpenStore review automatically. It may not
+  write to `~/Documents`; PDFs go there through *Open or share* and the file
+  manager.
 - **Qt 5.12 only** (`ubuntu-sdk-20.04`): `import QtQuick 2.12`,
   `QtMultimedia 5.12`, `Connections { onSignal: ... }`.
 - **Bundled libraries.** A 24.04 phone has no Tesseract and newer versions of

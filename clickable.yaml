@@ -35,10 +35,5 @@ install_lib:
   - /usr/lib/${ARCH_TRIPLET}/libwebpmux.so.3*
   - /usr/lib/${ARCH_TRIPLET}/libopenjp2.so*
 
-# read_path/write_path for ~/Documents (utdocscan.apparmor) are reserved:
-# click-review flags them as NEEDS REVIEW. That only matters for publishing to
-# the OpenStore (manual vetting there); sideloaded packages work fine.
-ignore_review_errors: true
-
 build_args:
   - -DCMAKE_BUILD_TYPE=Release

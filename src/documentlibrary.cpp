@@ -47,12 +47,14 @@ DocumentLibrary::DocumentLibrary(QObject *parent) : QObject(parent)
     refresh();
 }
 
-// ~/Documents, where the file manager and other apps find the PDFs. A
-// confined app may not write there by default; utdocscan.apparmor grants it
-// for this one folder (write_path).
+// Confined apps may only write below ~/.local/share/<package name>; main.cpp
+// sets the organisation name to the package name. Other apps get the PDFs
+// through the Content Hub (DocumentMenu, "Open or share").
 QString DocumentLibrary::documentsDir()
 {
-    const QString dir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    const QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                        + QLatin1Char('/') + QCoreApplication::organizationName()
+                        + QStringLiteral("/documents");
     QDir().mkpath(dir);
     return dir;
 }
