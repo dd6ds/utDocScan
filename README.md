@@ -175,4 +175,7 @@ adb shell 'dmesg | grep utdocscan | grep DENIED'      # AppArmor denials
 
 ## License
 
-See `LICENSE`.
+GPL-3.0-or-later (see `LICENSE`).
+
+The click bundles Tesseract (Apache-2.0) and Leptonica (BSD-2-Clause), both
+compatible with the GPL.
