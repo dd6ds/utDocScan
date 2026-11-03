@@ -271,7 +271,7 @@
 <context>
     <name>ImportPicker</name>
     <message>
-        <location filename="../qml/ImportPicker.qml" line="+25" />
+        <location filename="../qml/ImportPicker.qml" line="+33" />
         <source>Import a photo from</source>
         <translation>Importa una foto da</translation>
     </message>
@@ -441,7 +441,7 @@
         <translation>Impostazioni</translation>
     </message>
     <message>
-        <location line="+30" />
+        <location line="+35" />
         <source>Text recognition: Tesseract OCR. The languages for it are chosen when saving a PDF.</source>
         <translation>Riconoscimento del testo: Tesseract OCR. Le lingue si scelgono al salvataggio di un PDF.</translation>
     </message>
@@ -449,9 +449,22 @@
 <context>
     <name>SharePicker</name>
     <message>
-        <location filename="../qml/SharePicker.qml" line="+27" />
+        <location filename="../qml/SharePicker.qml" line="+35" />
         <source>Open or share with</source>
         <translation>Apri o condividi con</translation>
+    </message>
+</context>
+<context>
+    <name>ShutterSoundChoice</name>
+    <message>
+        <location filename="../qml/ShutterSoundChoice.qml" line="+14" />
+        <source>Camera</source>
+        <translation>Fotocamera</translation>
+    </message>
+    <message>
+        <location line="+10" />
+        <source>Shutter sound</source>
+        <translation>Suono dello scatto</translation>
     </message>
 </context>
 </TS>

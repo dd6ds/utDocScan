@@ -16,6 +16,7 @@
     <file>qml/SettingsPage.qml</file>
     <file>qml/LanguageChoice.qml</file>
     <file>qml/AppearanceChoice.qml</file>
+    <file>qml/ShutterSoundChoice.qml</file>
     <file>qml/ImportPicker.qml</file>
     <file>qml/SharePicker.qml</file>
     <file>qml/AppHeader.qml</file>

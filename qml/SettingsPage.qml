@@ -2,8 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-// Settings: user interface language and light/dark appearance. Both apply at
-// once and are remembered.
+// Settings: user interface language, light/dark appearance and the camera's
+// shutter sound. All apply at once and are remembered.
 Page {
     id: page
     property var app
@@ -34,6 +34,11 @@ Page {
             }
 
             AppearanceChoice {
+                Layout.fillWidth: true
+                app: page.app
+            }
+
+            ShutterSoundChoice {
                 Layout.fillWidth: true
                 app: page.app
             }

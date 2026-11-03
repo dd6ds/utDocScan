@@ -18,6 +18,7 @@ EN = {
 }
 
 DE = {
+    "Shutter sound": "Auslösegeräusch",
     "Back": "Zurück",
     "Appearance": "Darstellung",
     "Like the phone": "Wie das Telefon",
@@ -105,6 +106,7 @@ DE = {
 }
 
 FR = {
+    "Shutter sound": "Son du déclencheur",
     "Back": "Retour",
     "Appearance": "Apparence",
     "Like the phone": "Comme le téléphone",
@@ -194,6 +196,7 @@ FR = {
 }
 
 ES = {
+    "Shutter sound": "Sonido del obturador",
     "Back": "Atrás",
     "Appearance": "Apariencia",
     "Like the phone": "Como el teléfono",
@@ -282,6 +285,7 @@ ES = {
 }
 
 IT = {
+    "Shutter sound": "Suono dello scatto",
     "Back": "Indietro",
     "Appearance": "Aspetto",
     "Like the phone": "Come il telefono",

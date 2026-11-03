@@ -13,7 +13,8 @@ straighten them, recognise the text and save them as a searchable PDF.
 
 ## Features
 
-- **Scan with the camera** — tap to focus, flash on/off. An empty document
+- **Scan with the camera** — tap to focus, flash on/off, shutter sound can be
+  switched off in the settings. An empty document
   opens the camera right away.
 - **Import photos** from the gallery or the file manager (Content Hub).
 - **Straighten pages** — drag the four corners of the frame onto the page
@@ -101,6 +102,8 @@ qml/OcrLanguageChoice.qml OCR language check boxes
 qml/SettingsPage.qml      Language and appearance
 qml/LanguageChoice.qml    UI language selection
 qml/AppearanceChoice.qml  Light / dark / like-the-phone selection
+qml/ShutterSoundChoice.qml
+                          Shutter sound on/off
 qml/ImportPicker.qml      Content Hub: get a photo
 qml/SharePicker.qml       Content Hub: hand a PDF to another app
 qml/AppHeader.qml         Page title bar
@@ -139,10 +142,10 @@ To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
 
 | Path | Content |
 |---|---|
-| `~/.local/share/utdocscan/documents/*.pdf` | Saved documents |
-| `~/.local/share/utdocscan/utdocscan.log` | App log (also in the journal) |
-| `~/.cache/utdocscan/` | Photos and pages of the current scan |
-| `~/.config/utdocscan/utDocScan.conf` | Language, appearance, OCR choice, filter |
+| `~/.local/share/utdocscan.dd6ds/documents/*.pdf` | Saved documents |
+| `~/.local/share/utdocscan.dd6ds/utdocscan.log` | App log (also in the journal) |
+| `~/.cache/utdocscan.dd6ds/` | Photos and pages of the current scan |
+| `~/.config/utdocscan.dd6ds/utDocScan.conf` | Language, appearance, OCR choice, filter, shutter sound |
 
 ## Platform notes
 
@@ -162,6 +165,13 @@ To add a UI language, add it to `kLanguages` in `src/languagemanager.cpp`
 - **`QT_QUICK_CONTROLS_STYLE=Default`** is set in `main.cpp`, so the stock
   controls use the app's palette in both themes. Use `AppLabel` / `AppField`
   instead of bare `Label` / `TextField`.
+- **Package name `utdocscan.dd6ds`.** Holding an app icon in Lomiri's drawer
+  opens `open-store.io/app/<package name>/`, but only for package names that
+  contain a dot. The OpenStore listing has the same ID.
+- **Shutter sound.** The camera plugin (qtubuntu-camera) plays the click
+  itself and skips it when the app's settings file holds
+  `playShutterSound=false`. The `Settings` in `main.qml` writes that key, so
+  the app needs no code of its own for it.
 - **The Content Hub picker** is a Lomiri toolkit component; it is created on
   first use so the toolkit does not slow down the start.
 

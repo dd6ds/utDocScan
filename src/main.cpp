@@ -22,8 +22,9 @@
 namespace {
 
 // The click package name. Confined apps may only write below
-// ~/.local/share, ~/.cache and ~/.config /<package name>.
-const char *const kPackageName = "utdocscan";
+// ~/.local/share, ~/.cache and ~/.config /<package name>. It contains a dot
+// so that holding the app icon in Lomiri's drawer opens its OpenStore page.
+const char *const kPackageName = "utdocscan.dd6ds";
 
 QString logFilePath()
 {
@@ -83,7 +84,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("utDocScan"));
-    // Also decides the settings path (~/.config/utdocscan/utDocScan.conf)
+    // Also decides the settings path (~/.config/utdocscan.dd6ds/utDocScan.conf)
     // and the data and cache folders the backend uses.
     app.setOrganizationName(QLatin1String(kPackageName));
     defaultHandler = qInstallMessageHandler(logHandler);

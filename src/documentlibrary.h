@@ -1,5 +1,5 @@
 // The saved PDFs ("Library" in QML): listing, renaming and deleting the
-// files in ~/.local/share/utdocscan/documents.
+// files in ~/.local/share/utdocscan.dd6ds/documents.
 
 #ifndef DOCUMENTLIBRARY_H
 #define DOCUMENTLIBRARY_H

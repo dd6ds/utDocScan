@@ -69,6 +69,10 @@ ApplicationWindow {
         property string ocrLanguages: ""
         property bool ocrEnabled: true
         property int filter: 0
+        // Read by the phone's camera plugin (qtubuntu-camera), which looks up
+        // "playShutterSound" in the app's own settings file before it plays
+        // the click; this Settings object writes to that same file.
+        property bool playShutterSound: true
     }
     property alias settings: settings
 
